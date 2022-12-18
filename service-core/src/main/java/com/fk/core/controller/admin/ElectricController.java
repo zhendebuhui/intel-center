@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Api(tags = "电量后台")
 @RestController
@@ -21,23 +22,24 @@ public class ElectricController {
     @Resource
     private SysElectricService sysElectricService;
 
-    @ApiOperation("数据清洗")
+    /*@ApiOperation("数据清洗")
     @PostMapping("/dataClean")
     public R DClean() {
         sysElectricService.DClean();
         return R.ok();
-    }
+    }*/
 
-    @ApiOperation("添加100条数据")
+    @ApiOperation("添加96条数据")
     @PostMapping("/addEle/{comId}")
     public R addEle(@PathVariable Long comId) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime time = LocalDateTime.now().withNano(0);
         Double numEle = 100.0;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 96; i++) {
             SysElectric electric = new SysElectric()
                     .setComId(comId)
                     .setElectricity(numEle)
-                    .setUpdateTime(time.toString());
+                    .setUpdateTime(time.format(formatter));
 
             numEle += RandomUtil.randomDouble(5.0, 10.0);
             time = time.plusMinutes(15);

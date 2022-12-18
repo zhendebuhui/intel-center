@@ -5,6 +5,15 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 public interface SysElectricService extends IService<SysElectric> {
 
-    void DClean();
+    //上班时间
+    String workTime(Long comId);
 
+    //下班时间
+    String closingTime(Long comId);
+
+    //周末信息
+    boolean getWeekend(String date);
+
+    //公司类型
+    String  companyType(Long comId);
 }

@@ -10,13 +10,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @since 2022-11-13
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @ApiModel(value="SysCompany对象", description="")

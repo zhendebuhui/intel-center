@@ -21,7 +21,7 @@ public class R<T> {
     public R(){}
 
     // 返回数据
-    protected static <T> R<T> build(T data) {
+    public static <T> R<T> build(T data) {
         R<T> r = new R<T>();
         if (data != null)
             r.setData(data);

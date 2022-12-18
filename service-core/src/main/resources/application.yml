@@ -14,11 +14,11 @@ spring:
     password: root
 
   redis:
-    host: 10.100.88.76
+    host: 192.168.0.101
     port: 6379
     database: 0
     password: 123456
-    timeout: 3000ms
+    timeout: 1000s
     lettuce:
       pool:
         max-active: 20
